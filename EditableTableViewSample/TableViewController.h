@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TableViewController.h
 //  EditableTableViewSample
 //
 //  Created on 2015/03/30.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TableViewController : UITableViewController
 
 @end
-

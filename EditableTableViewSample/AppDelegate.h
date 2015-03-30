@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  EditableTableViewSample
 //
-//  Created by れおん on 2015/03/30.
+//  Created on 2015/03/30.
 //
 //
 
