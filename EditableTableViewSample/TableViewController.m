@@ -7,17 +7,16 @@
 //
 
 #import "TableViewController.h"
+#import "TableViewCell.h"
 
-@interface TableViewController ()
+/**
+ *  テーブルビューコントローラです。
+ */
+@interface TableViewController () <UITextFieldDelegate>
 
 @property NSArray *sectionList;
 @property NSMutableArray *list;
-@property BOOL editFlag;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
-@property (weak, nonatomic) IBOutlet UITextField *addTextField;
-@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
-- (IBAction)tapEdit:(id)sender;
 - (IBAction)tapAddButton:(id)sender;
 
 @end
@@ -26,26 +25,29 @@
 
 @synthesize sectionList;
 @synthesize list;
-@synthesize editFlag;
+
+const NSString *TABLEVIEWCELL_ID = @"TableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // カスタムセルをテーブルビューに登録します。
+    UINib *nibTableViewCell = [UINib nibWithNibName:TABLEVIEWCELL_ID
+                                             bundle:nil];
+    [self.tableView registerNib:nibTableViewCell
+         forCellReuseIdentifier:TABLEVIEWCELL_ID];
+    
     // セクション情報を初期化します。
-    sectionList = [[NSArray alloc] initWithObjects:@"UUID List", nil];
+    sectionList = [[NSArray alloc] initWithObjects:@"Item List", nil];
     
-    // テーブルビューの編集フラグの初期値を設定します。
-    editFlag = NO;
-    
-    // 追加コンポーネントの利用可能を設定します。
-    [self setAddComponentEnable:editFlag];
-    
-    //list = [[NSMutableArray alloc] init];
     // テーブルビューのアイテムリストを初期化します。
     list = [[NSMutableArray alloc] initWithObjects:@"test",
             @"test1",
             @"test2",
             nil];
+    
+    // テーブルビューの編集フラグの初期値を設定します。
+    [self.tableView setEditing:YES animated:NO];
 }
 
 /**
@@ -96,12 +98,12 @@
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLEVIEWCELL_ID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] init];
+        cell = [[TableViewCell alloc] init];
     }
-    cell.textLabel.text = list[indexPath.row];
-    
+    cell.txtItem.text = list[indexPath.row];
+    cell.txtItem.delegate = self;
     return cell;
 }
 
@@ -114,26 +116,13 @@
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:list.count inSection:0];
     NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
-    [list addObject:self.addTextField.text];
+    // リストに新規項目を追加します。
+    [list addObject:@""];
+    // テーブルビューにセルを追加します
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
-}
-
-/**
- *  編集ボタンタップ時の処理です。
- *
- *  @param sender センダーです。
- */
-- (IBAction)tapEdit:(id)sender
-{
-    editFlag = !editFlag;
-    [self.tableView setEditing:editFlag animated:YES];
-    if (editFlag) {
-        self.editButton.title = @"done";
-    } else {
-        self.editButton.title = @"edit";
-    }
-    // 追加コンポーネントの利用可能を設定します。
-    [self setAddComponentEnable:editFlag];
+    // 新規追加の入力項目にフォーカスをセットします。
+    TableViewCell *newCell = (TableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [newCell.txtItem becomeFirstResponder];
 }
 
 /**
@@ -155,14 +144,18 @@
 }
 
 /**
- *  追加コンポーネントの利用可能を設定をします。
+ *  キーボードのリターンキーをタップした時の処理です。
  *
- *  @param enableFlag 利用可能フラグです。
+ *  @param textField テキストフィールドです。
+ *
+ *  @return ブール値。
  */
-- (void)setAddComponentEnable:(BOOL)enableFlag
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    self.addButton.enabled = enableFlag;
-    self.addTextField.enabled = enableFlag;
+    // フォーカスを外します。
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 @end

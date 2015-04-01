@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yOK-hf-MGk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yOK-hf-MGk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -60,34 +61,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="lde-mQ-UE3">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem width="25" style="plain" systemItem="fixedSpace" id="UYb-tb-mjT"/>
-                                <barButtonItem style="plain" id="TWL-dK-XKu">
-                                    <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="dOk-mA-RfL">
-                                        <rect key="frame" x="41" y="7" width="195" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </barButtonItem>
-                                <barButtonItem style="plain" id="Qxf-dY-RcK">
-                                    <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YQh-xW-XuC">
-                                        <rect key="frame" x="209" y="7" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="add">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tapAddButton:" destination="11w-AM-iRd" eventType="touchUpInside" id="frK-ar-ggE"/>
-                                        </connections>
-                                    </button>
-                                </barButtonItem>
-                                <barButtonItem width="29" style="plain" systemItem="fixedSpace" id="Uds-ou-ccO"/>
-                            </items>
-                        </toolbar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="default" indentationWidth="10" id="mC0-pu-4kF">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -102,18 +75,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="eOL-0u-pya">
-                        <barButtonItem key="rightBarButtonItem" title="edit" id="b0f-t4-QUv">
+                        <barButtonItem key="rightBarButtonItem" title="add" id="LiX-wN-7uV">
                             <connections>
-                                <action selector="tapEdit:" destination="11w-AM-iRd" id="dOM-3X-ikA"/>
+                                <action selector="tapAddButton:" destination="11w-AM-iRd" id="Mf1-Jr-8Dw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="addButton" destination="YQh-xW-XuC" id="Nz0-Ld-Avk"/>
-                        <outlet property="addTextField" destination="dOk-mA-RfL" id="8M0-B8-NL5"/>
-                        <outlet property="editButton" destination="b0f-t4-QUv" id="PnM-sf-x8B"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dR-yT-kYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

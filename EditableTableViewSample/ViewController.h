@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  ルートのビューコントローラです。
+ */
 @interface ViewController : UIViewController
-
 
 @end
 

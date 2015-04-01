@@ -15,6 +15,8 @@
 		354597571AC9811100798EB7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354597551AC9811100798EB7 /* LaunchScreen.xib */; };
 		354597631AC9811100798EB7 /* EditableTableViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 354597621AC9811100798EB7 /* EditableTableViewSampleTests.m */; };
 		3545976E1AC9840100798EB7 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3545976D1AC9840100798EB7 /* TableViewController.m */; };
+		35466A6B1ACB9128009C093C /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35466A691ACB9128009C093C /* TableViewCell.m */; };
+		35466A6C1ACB9128009C093C /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35466A6A1ACB9128009C093C /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,9 @@
 		354597621AC9811100798EB7 /* EditableTableViewSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditableTableViewSampleTests.m; sourceTree = "<group>"; };
 		3545976C1AC9840100798EB7 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		3545976D1AC9840100798EB7 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		35466A681ACB9128009C093C /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		35466A691ACB9128009C093C /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		35466A6A1ACB9128009C093C /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +91,9 @@
 			children = (
 				3545974A1AC9811100798EB7 /* AppDelegate.h */,
 				3545974B1AC9811100798EB7 /* AppDelegate.m */,
+				35466A681ACB9128009C093C /* TableViewCell.h */,
+				35466A691ACB9128009C093C /* TableViewCell.m */,
+				35466A6A1ACB9128009C093C /* TableViewCell.xib */,
 				3545976C1AC9840100798EB7 /* TableViewController.h */,
 				3545976D1AC9840100798EB7 /* TableViewController.m */,
 				3545974D1AC9811100798EB7 /* ViewController.h */,
@@ -204,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				354597521AC9811100798EB7 /* Main.storyboard in Resources */,
+				35466A6C1ACB9128009C093C /* TableViewCell.xib in Resources */,
 				354597571AC9811100798EB7 /* LaunchScreen.xib in Resources */,
 				354597541AC9811100798EB7 /* Images.xcassets in Resources */,
 			);
@@ -226,6 +235,7 @@
 				3545974F1AC9811100798EB7 /* ViewController.m in Sources */,
 				3545974C1AC9811100798EB7 /* AppDelegate.m in Sources */,
 				354597491AC9811100798EB7 /* main.m in Sources */,
+				35466A6B1ACB9128009C093C /* TableViewCell.m in Sources */,
 				3545976E1AC9840100798EB7 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

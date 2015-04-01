@@ -8,20 +8,27 @@
 
 #import "ViewController.h"
 
+/**
+ *  ルートのビューコントローラです。
+ */
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
+/**
+ *  (オーバーライドです。)
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
+/**
+ *  (オーバーライドです。)
+ */
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

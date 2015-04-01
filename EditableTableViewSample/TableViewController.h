@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  テーブルビューコントローラです。
+ */
 @interface TableViewController : UITableViewController
 
 @end
