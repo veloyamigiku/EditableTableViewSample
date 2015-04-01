@@ -10,6 +10,7 @@
 
 @interface TableViewController ()
 
+@property NSArray *sectionList;
 @property NSMutableArray *list;
 @property BOOL editFlag;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
@@ -23,11 +24,15 @@
 
 @implementation TableViewController
 
+@synthesize sectionList;
 @synthesize list;
 @synthesize editFlag;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // セクション情報を初期化します。
+    sectionList = [[NSArray alloc] initWithObjects:@"UUID List", nil];
     
     // テーブルビューの編集フラグの初期値を設定します。
     editFlag = NO;
@@ -52,7 +57,20 @@
  */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return sectionList.count;
+}
+
+/**
+ *  (オーバーライドです。)
+ *
+ *  @param tableView テーブルビューです。
+ *  @param section   セクションです。
+ *
+ *  @return セクションのヘッダタイトル。
+ */
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return sectionList[section];
 }
 
 /**
@@ -98,7 +116,6 @@
     NSArray *indexPaths = [NSArray arrayWithObjects:indexPath, nil];
     [list addObject:self.addTextField.text];
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
-    [self.tableView reloadData];
 }
 
 /**
