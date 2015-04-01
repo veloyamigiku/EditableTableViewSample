@@ -31,6 +31,9 @@ const NSString *TABLEVIEWCELL_ID = @"TableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // テーブルビューの境界線のスタイルを設定します。
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     // カスタムセルをテーブルビューに登録します。
     UINib *nibTableViewCell = [UINib nibWithNibName:TABLEVIEWCELL_ID
                                              bundle:nil];
